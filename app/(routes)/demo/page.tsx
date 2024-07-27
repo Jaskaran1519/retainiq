@@ -14,7 +14,7 @@ const demo = () => {
             <h1 className="font-semibold text-3xl">Back</h1>
           </Link>
         </div>
-        <button className="bg-green-500 text-white text-md py-2 px-4 rounded-xl">
+        <button className="bg-green-500 text-white text-md font-semibold py-2 px-4 rounded-xl">
           <h1>Publish feed</h1>
         </button>
       </div>

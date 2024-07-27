@@ -9,21 +9,21 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Trash } from "lucide-react";
+import { EllipsisVertical, Trash } from "lucide-react";
 
 type DeleteProps = {
   onDelete: () => void;
 };
 
-const Delete = ({ onDelete }: DeleteProps) => {
+const DeleteCol = ({ onDelete }: DeleteProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Trash className="cursor-pointer" />
+        <EllipsisVertical className="cursor-pointer" />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Delete the Column?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete the
             record and remove your data from our servers.
@@ -38,4 +38,4 @@ const Delete = ({ onDelete }: DeleteProps) => {
   );
 };
 
-export default Delete;
+export default DeleteCol;
