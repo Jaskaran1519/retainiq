@@ -19,6 +19,7 @@ const demo = () => {
         </button>
       </div>
       <ProductGrid />
+      <div className="w-full h-44"></div>
     </div>
   );
 };

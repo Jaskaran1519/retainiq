@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from "react";
 import Delete from "./DeleteRow";
 import Popout from "./Popout";
 import DeleteCol from "./DeleteCol";
+import Filter from "./Filter";
 
 type Variant = {
   url: string;
@@ -50,7 +51,7 @@ export const ProductGrid = () => {
     );
   };
   return (
-    <div className="w-[90%] min-h-3/4 p-0 border bg-gray-50 rounded-xl mx-auto overflow-x-auto hide-scrollbar">
+    <div className="w-[90%] min-h-3/4 p-0 border bg-gray-50 rounded-xl mx-auto overflow-x-auto hide-scrollbar ">
       <div className="min-w-max ml-8">
         {rows.length === 0 ? (
           <div className="flex justify-center items-center h-64">
@@ -90,7 +91,7 @@ export const ProductGrid = () => {
             {rows.map((row, rowIndex) => (
               <div
                 key={rowIndex}
-                className="flex items-center my-5 gap-10"
+                className="flex items-center my-5 gap-10 "
                 style={{
                   display: "grid",
                   gridTemplateColumns: "auto auto 1fr",
@@ -104,7 +105,7 @@ export const ProductGrid = () => {
                 </div>
                 <div className="sticky left-36 bg-white z-10 rounded-xl w-[30vw] mr-5">
                   <div className="h-44 border  flex items-center justify-center">
-                    Product filter
+                    <Filter />
                   </div>
                 </div>
                 <div className="flex gap-10 overflow-x-auto">
@@ -150,7 +151,8 @@ export const ProductGrid = () => {
                 </div>
               </div>
             ))}
-            <div onClick={addRow}>
+            <div className="h-16 w-full"></div>
+            <div onClick={addRow} className="sticky  left-10">
               <Popout />
             </div>
           </>

@@ -9,7 +9,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { EllipsisVertical, Trash } from "lucide-react";
+import { Trash } from "lucide-react";
 
 type DeleteProps = {
   onDelete: () => void;
