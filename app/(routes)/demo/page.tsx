@@ -1,3 +1,4 @@
+import Footer from "@/app/(components)/Footer";
 import ProductGrid from "@/app/(components)/ProductGrid";
 import { ArrowBigLeft, ArrowLeft, ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
@@ -20,6 +21,7 @@ const demo = () => {
       </div>
       <ProductGrid />
       <div className="w-full h-44"></div>
+      <Footer />
     </div>
   );
 };

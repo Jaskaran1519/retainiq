@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Clone this project in your system and open it in vs code
+run 'npm install' in the terminal to install all the necessay packages to run the project
+
 First, run the development server:
 
 ```bash
@@ -20,17 +23,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## What is used
 
-To learn more about Next.js, take a look at the following resources:
+In this project, i used Nextjs 14, Tailwind CSS and Framor motion. Actually i read the almost a day late and didnt know how to implement the rearranging of rows and didnt have enough time to reseaarch so i just used framor motion to somehow make that work.
+I used some components from shadcn and hyper ui to speed up the process
+As there was not enough time and didnt want to miss the deadline to didnt work that much on the responsiveness of this page on all devices.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The task is live at https://retainiqjaskaran.vercel.app/
