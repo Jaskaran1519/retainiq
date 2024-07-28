@@ -1,6 +1,8 @@
 "use client";
-import { motion, Reorder } from "framer-motion";
-import { useState, ChangeEvent } from "react";
+
+import { ChangeEvent, useState } from "react";
+import { motion, Reorder, AnimatePresence } from "framer-motion";
+import Notification from "./Notification";
 import Delete from "./DeleteRow";
 import DeleteCol from "./DeleteCol";
 import Filter from "./Filter";
@@ -18,6 +20,7 @@ interface RowData {
 
 const ProductGrid = () => {
   const [rows, setRows] = useState<RowData[]>([{ id: 1, variants: [null] }]);
+  const [notification, setNotification] = useState<string | null>(null);
 
   const addRow = () => {
     const newRowId = rows.length + 1;
@@ -26,10 +29,17 @@ const ProductGrid = () => {
       ...rows,
       { id: newRowId, variants: Array(columnCount).fill(null) },
     ]);
+    showNotification("Row added!");
   };
 
   const addVariantColumn = () => {
     setRows(rows.map((row) => ({ ...row, variants: [...row.variants, null] })));
+    showNotification("Column added!");
+  };
+
+  const showNotification = (message: string) => {
+    setNotification(message);
+    setTimeout(() => setNotification(null), 2000);
   };
 
   const handleImageUpload = (
@@ -102,6 +112,14 @@ const ProductGrid = () => {
 
   return (
     <div className="w-[90%] min-h-3/4 p-0 border bg-[#fbfbfd] rounded-xl mx-auto overflow-x-auto hide-scrollbar">
+      <AnimatePresence>
+        {notification && (
+          <Notification
+            message={notification}
+            onDismiss={() => setNotification(null)}
+          />
+        )}
+      </AnimatePresence>
       <div className="min-w-max">
         {rows.length === 0 ? (
           <div className="flex justify-center items-center h-64">
@@ -154,7 +172,7 @@ const ProductGrid = () => {
                       gridTemplateColumns: "auto auto 1fr",
                     }}
                   >
-                    <div className="sticky left-0 bg-[#fbfbfd] z-10 w-44 h-44">
+                    <div className="sticky left-0 bg-gray-50 z-10 w-44 h-44">
                       <div className="p-4 text-3xl flex flex-col justify-center items-center gap-y-5">
                         {rowIndex + 1}
                         <Delete onDelete={() => handleDeleteRow(rowIndex)} />
@@ -171,9 +189,14 @@ const ProductGrid = () => {
                           {renderVariantCell(variant, rowIndex, variantIndex)}
                         </div>
                       ))}
-                      <button onClick={addVariantColumn} className="p-2  mr-5">
-                        <Plus />
-                      </button>
+                      <div className="flex justify-center items-center">
+                        <button
+                          onClick={addVariantColumn}
+                          className="p-2 border bg-white"
+                        >
+                          <Plus />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </Reorder.Item>
@@ -181,10 +204,10 @@ const ProductGrid = () => {
             </Reorder.Group>
 
             <div className="h-16 w-full"></div>
-            <div className="sticky bottom-0 left-0   z-10 w-44 h-16 flex items-center justify-center">
+            <div className="sticky bottom-0 left-0  z-10 w-44 h-16 flex items-center justify-center">
               <button
                 onClick={addRow}
-                className="p-2 border bg-white rounded-lg"
+                className="p-2 bg-white border rounded-lg"
               >
                 <Plus />
               </button>
